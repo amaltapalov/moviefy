@@ -4,7 +4,9 @@ import {
 	API_KEY,
 	IMAGE_BASE_URL,
 	BACKDROP_SIZE,
-	POSTER_SIZE
+	POSTER_SIZE,
+	SEARCH_BASE_URL,
+	POPULAR_BASE_URL
 } from "../config";
 import HeroImage from "./elements/HeroImage";
 import SearchBar from "./elements/SearchBar";
@@ -20,11 +22,18 @@ const Home = () => {
 	const [{ state, loading, error }, fetchMovies] = useHomeFetch();
 	const [searchTerm, setSearchTerm] = useState("");
 
+	// Search movie based on endpoints
+	const searchMovies = search => {
+		const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_URL;
+		setSearchTerm(search);
+		fetchMovies(endpoint);
+	};
+
 	// Function for Load More button (see useHomeFetch)
 	const loadMoreMovies = () => {
-		const searchEndpoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}&page=${state.currentPage +
+		const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${state.currentPage +
 			1}`;
-		const popularEndpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${state.currentPage +
+		const popularEndpoint = `${POPULAR_BASE_URL}&page=${state.currentPage +
 			1}`;
 		// if endpoint is SearchTerms - show Search result page , otherwise popular page
 		const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
@@ -41,12 +50,14 @@ const Home = () => {
 	return (
 		<>
 			{/* HeroImage: we take data from useHomeFetch */}
-			<HeroImage
-				title={state.heroImage.original_title}
-				text={state.heroImage.overview}
-				image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.heroImage.backdrop_path}`}
-			/>
-			<SearchBar />
+			{!searchTerm && (
+				<HeroImage
+					title={state.heroImage.original_title}
+					text={state.heroImage.overview}
+					image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.heroImage.backdrop_path}`}
+				/>
+			)}
+			<SearchBar callback={searchMovies} />
 			<Grid header={searchTerm ? "Search result" : "Popular movies"}>
 				{/* map through dataa in state (see console) */}
 				{state.movies.map(movie => (

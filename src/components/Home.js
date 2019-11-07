@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-	API_URL,
-	API_KEY,
 	IMAGE_BASE_URL,
 	BACKDROP_SIZE,
 	POSTER_SIZE,
@@ -77,7 +75,7 @@ const Home = () => {
 			{loading && <Spinner />}
 
 			{/* Control Load More button visibility. it's visible when
-			1. when we aren't on last page
+			1. when we are on the last page
 			2. when we aren't loading
 			*/}
 			{state.currentPage < state.totalPages && !loading && (

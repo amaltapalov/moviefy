@@ -4,7 +4,6 @@ import {
 	StyledSearchBar,
 	StyledSearchBarContent
 } from "../styles/StyledSearchBar";
-import { clear } from "sisteransi";
 
 const SearchBar = ({ callback }) => {
 	const [state, setState] = useState("");

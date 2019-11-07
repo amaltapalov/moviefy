@@ -64,7 +64,14 @@ const Home = () => {
 				))}
 			</Grid>
 			{loading && <Spinner />}
-			<LoadMoreBtn text="Load more" callback={loadMoreMovies} />
+
+			{/* Control Load More button visibility. it's visible when
+			1. when we aren't on last page
+			2. when we aren't loading
+			*/}
+			{state.currentPage < state.totalPages && !loading && (
+				<LoadMoreBtn text="Load more" callback={loadMoreMovies} />
+			)}
 		</>
 	);
 };

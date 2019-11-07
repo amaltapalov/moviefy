@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_URL, API_KEY } from "../../config";
+import { string } from "postcss-selector-parser";
 
 export const useHomeFetch = () => {
 	const [state, setState] = useState({ movies: [] });
@@ -11,13 +12,18 @@ export const useHomeFetch = () => {
 		setError(false);
 		setLoading(true);
 
+		// if there is a 'page' in endpoint string - return string, otherwise - return (-1)
+		const isLoadMore = endpoint.search("page");
+
 		try {
 			// we wait until fetched data will be parsed to json
 			const result = await (await fetch(endpoint)).json();
-
 			setState(prev => ({
 				...prev,
-				movies: [...result.results],
+				movies:
+					isLoadMore !== -1
+						? [...prev.movies, ...result.results]
+						: [...result.results],
 				heroImage: prev.heroImage || result.results[0],
 				currentPage: result.page,
 				totalPages: result.total_pages

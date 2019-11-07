@@ -20,6 +20,17 @@ const Home = () => {
 	const [{ state, loading, error }, fetchMovies] = useHomeFetch();
 	const [searchTerm, setSearchTerm] = useState("");
 
+	// Function for Load More button (see useHomeFetch)
+	const loadMoreMovies = () => {
+		const searchEndpoint = `${API_URL}search/movie?api_key=${API_KEY}&query=${searchTerm}&page=${state.currentPage +
+			1}`;
+		const popularEndpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=${state.currentPage +
+			1}`;
+		// if endpoint is SearchTerms - show Search result page , otherwise popular page
+		const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
+		fetchMovies(endpoint);
+	};
+
 	console.log(state);
 
 	// if Data is not fetched - show Error
@@ -52,8 +63,8 @@ const Home = () => {
 					/>
 				))}
 			</Grid>
-			<Spinner />
-			<LoadMoreBtn />
+			{loading && <Spinner />}
+			<LoadMoreBtn text="Load more" callback={loadMoreMovies} />
 		</>
 	);
 };

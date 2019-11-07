@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import {
 	StyledHeader,
 	StyledMoviefyLogo,
@@ -10,7 +11,9 @@ import TMDBlogo from "../images/tmdb_logo.svg";
 const Header = () => (
 	<StyledHeader>
 		<div className="header-content">
-			<StyledMoviefyLogo src={logo} alt="Moviefy" />
+			<Link to="/">
+				<StyledMoviefyLogo src={logo} alt="Moviefy" />
+			</Link>
 			<StyledTMDBLogo src={TMDBlogo} alt="tmdb-logo" />
 		</div>
 	</StyledHeader>

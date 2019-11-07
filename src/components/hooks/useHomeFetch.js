@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
-import { API_URL, API_KEY } from '../../config';
+import { useState, useEffect } from "react";
+import { API_URL, API_KEY } from "../../config";
 
 export const useHomeFetch = () => {
 	const [state, setState] = useState({ movies: [] });
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 
-	// we don't know when we get data from API so we need to use async
+	// we don't know when we get data from API so we need to use async/await
 	const fetchMovies = async endpoint => {
 		setError(false);
 		setLoading(true);
 
 		try {
+			// we wait until fetched data will be parsed to json
 			const result = await (await fetch(endpoint)).json();
 
 			setState(prev => ({
@@ -25,6 +26,7 @@ export const useHomeFetch = () => {
 			setError(true);
 			console.log(error);
 		}
+		// we stopped Loading at this moment
 		setLoading(false);
 	};
 

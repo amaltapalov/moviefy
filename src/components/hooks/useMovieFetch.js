@@ -12,14 +12,14 @@ export const useMovieFetch = movieId => {
 		setLoading(true);
 
 		try {
-			// grab data from particular movie
+			// Grab data from particular movie
 			const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
 			const result = await (await fetch(endpoint)).json();
-			console.log(result);
+			// console.log(result);
 
 			const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
 			const creditsResult = await (await fetch(creditsEndpoint)).json();
-			console.log(creditsResult);
+			// console.log(creditsResult);
 
 			const directors = creditsResult.crew.filter(
 				member => member.job === "Director"
@@ -28,7 +28,7 @@ export const useMovieFetch = movieId => {
 			setState({
 				...result,
 				actors: creditsResult.cast,
-				director: directors
+				directors: directors
 			});
 		} catch (error) {
 			setError(true);

@@ -9,22 +9,29 @@ import Spinner from "./elements/Spinner";
 import { useMovieFetch } from "./hooks/useMovieFetch";
 
 const Movie = ({ movieId }) => {
-	const [movie, loading, error] = useMovieFetch(movieId);
+	const [state, loading, error] = useMovieFetch(movieId);
 
 	// movie param consists of (result) and (creditsResult)
-	// see usemovieFetch.js for more
-	console.log(movie);
+	// see useMovieFetch.js for more
+	console.log(state);
 
 	if (error) return <div>Something went wrong!</div>;
 	if (loading) return <Spinner />;
 
 	return (
 		<>
-			<Navigation movie={movie.original_title} />
-			<MovieInfo movie={movie} />
-			<MovieInfoBar />
-			<Grid>
-				<Actor />
+			<Navigation movie={state.original_title} />
+			<MovieInfo movie={state} />
+			<MovieInfoBar
+				time={state.runtime}
+				budget={state.budget}
+				revenue={state.revenue}
+			/>
+			<Grid header="Actors">
+				{state.actors.map(actor => (
+					<Actor key={actor.id} actor={actor} />
+				))}
+				<p>Actor's name</p>
 			</Grid>
 			{loading && <Spinner />}
 		</>

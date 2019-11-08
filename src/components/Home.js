@@ -38,7 +38,7 @@ const Home = () => {
 		fetchMovies(endpoint);
 	};
 
-	console.log(state);
+	// console.log(state);
 
 	// if Data is not fetched - show Error
 	if (error) return <div>Something went wrong</div>;

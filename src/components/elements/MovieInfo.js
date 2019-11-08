@@ -28,12 +28,12 @@ const MovieInfo = ({ movie }) => (
 						<h3>IMDB RATING</h3>
 						<div className="score">{movie.vote_average}</div>
 					</div>
-				</div>
-				<div className="director">
-					<h3>DIRECTOR(S)</h3>
-					{movie.directors.map(element => (
-						<p key={element.id}>{element.name}</p>
-					))}
+					<div className="director">
+						<h3>DIRECTOR{movie.directors.length > 1 ? "S" : ""}</h3>
+						{movie.directors.map(director => (
+							<p key={director.id}>{director.name}</p>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

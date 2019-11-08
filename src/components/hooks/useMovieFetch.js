@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
-
 import { API_URL, API_KEY } from "../../config";
 
 export const useMovieFetch = movieId => {
 	const [state, setState] = useState({});
-	const [loading, setLoading] = useState(false);
+	// !!! I set loading to true because
+	// loading should be FALSE (when we first render MovieInfo component - see Movie.js)
+	// if(loading) return <Spinner />
+	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
 
 	const fetchData = useCallback(async () => {
@@ -28,7 +30,7 @@ export const useMovieFetch = movieId => {
 			setState({
 				...result,
 				actors: creditsResult.cast,
-				directors: directors
+				directors
 			});
 		} catch (error) {
 			setError(true);

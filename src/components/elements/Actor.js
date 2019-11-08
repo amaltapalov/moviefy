@@ -7,11 +7,9 @@ const Actor = ({ actor }) => (
 	<StyledActor>
 		<img
 			src={
-				actor.profile_path ? (
-					`${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
-				) : (
-					<NoImage />
-				)
+				actor.profile_path
+					? `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
+					: NoImage
 			}
 			alt="Actorthumb"
 		/>

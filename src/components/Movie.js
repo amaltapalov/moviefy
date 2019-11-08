@@ -31,7 +31,6 @@ const Movie = ({ movieId }) => {
 				{state.actors.map(actor => (
 					<Actor key={actor.id} actor={actor} />
 				))}
-				<p>Actor's name</p>
 			</Grid>
 			{loading && <Spinner />}
 		</>

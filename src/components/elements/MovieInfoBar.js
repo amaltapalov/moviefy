@@ -21,7 +21,7 @@ const MovieInfoBar = ({ time, budget, revenue }) => (
 				</span>
 			</div>
 
-			<div className="movieinfo-content-col">
+			<div className="movieinfobar-content-col">
 				<FontAwesome className="fa-revenue" name="ticket" size="2x" />
 				<span className="movieinfobar-info">
 					convertMoney: {convertMoney(revenue)}

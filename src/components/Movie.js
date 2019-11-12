@@ -27,11 +27,11 @@ const Movie = ({ movieId }) => {
 				budget={movie.budget}
 				revenue={movie.revenue}
 			/>
-			<Grid header="Actors">
+			{/* <Grid header="Actors">
 				{movie.actors.map(actor => (
 					<Actor key={actor.credit_id} actor={actor} />
 				))}
-			</Grid>
+			</Grid> */}
 			{loading && <Spinner />}
 		</>
 	);

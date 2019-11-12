@@ -3,7 +3,7 @@ import { POPULAR_BASE_URL } from "../../config";
 
 export const useHomeFetch = searchTerm => {
 	const [state, setState] = useState({ movies: [] });
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 
 	// we don't know when we get data from API so we need to use async/await

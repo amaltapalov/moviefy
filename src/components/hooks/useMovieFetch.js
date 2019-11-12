@@ -10,6 +10,9 @@ export const useMovieFetch = movieId => {
 	const [error, setError] = useState(false);
 
 	const fetchData = useCallback(async () => {
+		setError(false);
+		setLoading(true);
+
 		try {
 			// Grab data from particular movie
 			const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;

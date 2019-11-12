@@ -11,7 +11,6 @@ const SearchBar = ({ callback }) => {
 	const timeOut = useRef(null);
 
 	const doSearch = event => {
-		console.log(event.target.value);
 		// Synchronize search bar and input
 		const { value } = event.target;
 		clearTimeout(timeOut.current);

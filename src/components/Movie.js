@@ -13,7 +13,7 @@ const Movie = ({ movieId }) => {
 
 	// movie param consists of (result) and (creditsResult)
 	// see useMovieFetch.js for more
-	console.log(movie);
+	console.log(movieId);
 
 	if (error) return <div>Something went wrong!</div>;
 	if (loading) return <Spinner />;
@@ -27,11 +27,11 @@ const Movie = ({ movieId }) => {
 				budget={movie.budget}
 				revenue={movie.revenue}
 			/>
-			{/* <Grid header="Actors">
+			<Grid header="Actors">
 				{movie.actors.map(actor => (
 					<Actor key={actor.credit_id} actor={actor} />
 				))}
-			</Grid> */}
+			</Grid>
 			{loading && <Spinner />}
 		</>
 	);

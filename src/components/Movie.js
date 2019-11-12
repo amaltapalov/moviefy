@@ -29,7 +29,7 @@ const Movie = ({ movieId }) => {
 			/>
 			<Grid header="Actors">
 				{state.actors.map(actor => (
-					<Actor key={actor.id} actor={actor} />
+					<Actor key={actor.credit_id} actor={actor} />
 				))}
 			</Grid>
 			{loading && <Spinner />}

@@ -6,7 +6,7 @@ export const useMovieFetch = movieId => {
 	// !!! I set loading to true because
 	// loading should be FALSE (when we first render MovieInfo component - see Movie.js)
 	// if(loading) return <Spinner />
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 
 	const fetchData = useCallback(async () => {

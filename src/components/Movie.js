@@ -13,7 +13,7 @@ const Movie = ({ movieId }) => {
 
 	// movie param consists of (result) and (creditsResult)
 	// see useMovieFetch.js for more
-	console.log(movieId);
+	console.log(movie);
 
 	if (error) return <div>Something went wrong!</div>;
 	if (loading) return <Spinner />;

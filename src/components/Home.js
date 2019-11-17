@@ -17,9 +17,9 @@ import { useHomeFetch } from "./hooks/useHomeFetch";
 import NoImage from "./images/no_image.jpg";
 
 const Home = () => {
-  // searcTerm is a query of search bar
+  // searchTerm is a query of search bar
   const [searchTerm, setSearchTerm] = useState("");
-  const [{ state, loading, error }, fetchMovies] = useHomeFetch(searchTerm);
+  const [{ state, loading, error }, fetchMovies] = useHomeFetch();
 
   // Search movie based on endpoints
   const searchMovies = search => {

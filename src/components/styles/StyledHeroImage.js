@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const StyledHeroImage = styled.div`
   background: ${props =>
     `linear-gradient(
-      to bottom, rgba(0,0,0,0)
-      20%,rgba(145, 6, 29,0.65)
-      100%
+      to bottom, rgba(0,0,0,0) 40%,
+      rgba(145, 6, 29,0.65) 100%
     ),
     url('${props.image}'), #381954`};
   background-size: 100%, cover !important;
@@ -31,10 +30,10 @@ export const StyledHeroImage = styled.div`
     color: ${props => props.theme.colors.normal};
 
     h1 {
-      font-size: 48px;
+      font-size: 58px;
 
       @media screen and (max-width: 720px) {
-        font-size: 38px;
+        font-size: 45px;
       }
     }
 

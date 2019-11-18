@@ -9,10 +9,6 @@ export const StyledMovieThumb = styled.div`
     border-radius: 15px;
     animation: animateMovieThumb 0.5s;
 
-    @media (max-width: 600px) {
-      min-height: 180px;
-    }
-
     :hover {
       transform: scale(1.03);
       box-shadow: 0 7px 20px ${props => props.theme.colors.accent};

@@ -9,7 +9,7 @@ export const StyledMovieInfoBar = styled.div`
   background: ${props => props.theme.colors.lightBackground};
   padding: 0 20px;
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 16px;
 
   .movieinfobar-content {
     max-width: 1280px;
@@ -21,22 +21,14 @@ export const StyledMovieInfoBar = styled.div`
 
   .movieinfobar-content-col {
     padding: 0 20px;
-  }
-
-  .movieinfobar-info {
-    padding: 5px 0 0 10px;
-    float: left;
+    display: flex;
+    align-items: center;
   }
 
   .fa-time,
-  .fa-revenue {
-    float: left;
-    margin-top: -4px;
-  }
-
+  .fa-revenue,
   .fa-budget {
-    float: left;
-    margin-top: -3px;
+    padding-right: 10px;
   }
 
   @media screen and (max-width: 768px) {

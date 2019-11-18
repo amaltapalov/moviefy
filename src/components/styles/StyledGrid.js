@@ -8,7 +8,7 @@ export const StyledGrid = styled.div`
     font-size: 42px;
 
     @media screen and (max-width: 768px) {
-      font-size: 22px;
+      font-size: 30px;
     }
   }
 `;

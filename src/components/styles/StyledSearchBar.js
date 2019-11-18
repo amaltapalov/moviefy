@@ -21,13 +21,13 @@ export const StyledSearchBarContent = styled.div`
   .fa-search {
     position: absolute;
     left: 20px;
-    top: 12px;
+    top: 15px;
     z-index: 1000;
+    font-size: 25px;
   }
 
   input {
-    font-family: "Abel", sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     position: absolute;
     left: 0px;
     margin: 8px 0;
@@ -44,7 +44,7 @@ export const StyledSearchBarContent = styled.div`
     }
 
     @media screen and (max-width: 720px) {
-      font-size: 28px;
+      font-size: 18px;
     }
   }
 `;

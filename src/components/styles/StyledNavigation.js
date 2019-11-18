@@ -14,13 +14,14 @@ export const StyledNavigation = styled.div`
     width: 100%;
 
     p {
-      font-size: 22px;
+      font-family: "Bebas Neue", cursive;
+      font-size: 28px;
       float: left;
       color: #fff;
       padding-right: 10px;
 
       @media screen and (max-width: 768px) {
-        font-size: 16px;
+        font-size: 22px;
       }
     }
   }

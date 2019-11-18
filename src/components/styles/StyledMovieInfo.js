@@ -39,36 +39,38 @@ export const StyledMovieInfo = styled.div`
   }
 
   .movieinfo-text {
-    font-family: Arial, Helvetica, sans-serif;
     padding: 40px;
     overflow: hidden;
 
     h1 {
-      font-family: "Abel", sans-serif;
-      font-size: 48px;
+      font-size: 52px;
       margin: 0;
 
       @media screen and (max-width: 1000px) {
-        font-size: 32px !important;
+        font-size: 40px !important;
       }
     }
 
     h3 {
-      font-size: 16px;
+      font-size: 24px;
       line-height: 0;
       margin-top: 30px;
     }
 
     p {
-      font-family: "Abel", sans-serif;
       font-size: 18px;
       line-height: 26px;
     }
   }
 
-  .rating-director {
+  .movieinfo-data {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    @media screen and (max-width: 600px) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+      grid-gap: 10px;
+    }
   }
 
   .score {
@@ -82,14 +84,6 @@ export const StyledMovieInfo = styled.div`
     font-weight: 800;
     border-radius: 25px;
     margin: 0px 0 0 0;
-  }
-
-  .director {
-    margin: 0 0 0 40px;
-
-    p {
-      margin: 0;
-    }
   }
 
   @media screen and (max-width: 768px) {

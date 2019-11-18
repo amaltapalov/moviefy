@@ -12,6 +12,9 @@ export const StyledActor = styled.div`
     height: 200px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
+    @media (max-width: 768px) {
+      height: 180px;
+    }
   }
 
   .actor-name {

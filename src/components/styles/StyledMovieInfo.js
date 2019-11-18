@@ -14,6 +14,7 @@ export const StyledMovieInfo = styled.div`
 
   .movieinfo-content {
     max-width: 1280px;
+    width: 95%;
     min-height: 450px;
     margin: 0 auto;
     background: rgb(0, 0, 0, 0.7);
@@ -31,6 +32,9 @@ export const StyledMovieInfo = styled.div`
 
     img {
       border-radius: 20px 0 0 20px;
+      @media (max-width: 768px) {
+        border-radius: 20px 20px 0 0;
+      }
     }
   }
 

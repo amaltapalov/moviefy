@@ -3,11 +3,15 @@ import styled from "styled-components";
 export const StyledMovieThumb = styled.div`
   img {
     width: 100%;
-    min-height: 340px;
+    min-height: 250px;
     transition: all 0.3s;
     object-fit: cover;
     border-radius: 15px;
     animation: animateMovieThumb 0.5s;
+
+    @media (max-width: 600px) {
+      min-height: 180px;
+    }
 
     :hover {
       transform: scale(1.03);

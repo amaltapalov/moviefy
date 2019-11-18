@@ -7,6 +7,7 @@ import MovieInfoBar from "./elements/MovieInfoBar";
 import Actor from "./elements/Actor";
 import Grid from "./elements/Grid";
 import Spinner from "./elements/Spinner";
+import Footer from "./elements/Footer";
 
 import { useMovieFetch } from "./hooks/useMovieFetch";
 
@@ -30,6 +31,8 @@ const Movie = ({ movieId }) => {
           <Actor key={actor.credit_id} actor={actor} />
         ))}
       </Grid>
+
+      <Footer />
     </>
   );
 };

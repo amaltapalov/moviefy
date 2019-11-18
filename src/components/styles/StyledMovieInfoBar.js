@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledMovieInfoBar = styled.div`
   display: flex;
@@ -6,24 +6,21 @@ export const StyledMovieInfoBar = styled.div`
   width: 100%;
   min-height: 100px;
   height: auto;
-  background: #1c1c1c;
-  padding: 20px;
+  background: ${props => props.theme.colors.lightBackground};
+  padding: 0 20px;
   box-sizing: border-box;
-  font-family: 'Abel', sans-serif;
   font-size: 20px;
 
   .movieinfobar-content {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    color: #fff;
+    display: flex;
+    justify-content: space-around;
   }
 
   .movieinfobar-content-col {
-    float: left;
-    width: 33.33%;
-    box-sizing: border-box;
-    padding: 10px 20px 0 0;
+    padding: 0 20px;
   }
 
   .movieinfobar-info {

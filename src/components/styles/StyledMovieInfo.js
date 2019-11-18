@@ -1,16 +1,15 @@
-import styled from 'styled-components';
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import styled from "styled-components";
+import { IMAGE_BASE_URL, BACKDROP_SIZE } from "../../config";
 
 export const StyledMovieInfo = styled.div`
   background: ${props =>
     props.backdrop
       ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.backdrop}')`
-      : '#000'};
+      : "#111517"};
   background-size: cover !important;
   background-position: center !important;
   width: 100%;
-  padding: 40px 20px;
-  box-sizing: border-box;
+  padding: 40px 0;
   animation: animateMovieinfo 1s;
 
   .movieinfo-content {
@@ -29,16 +28,19 @@ export const StyledMovieInfo = styled.div`
     @media screen and (max-width: 768px) {
       width: 100% !important;
     }
+
+    img {
+      border-radius: 20px 0 0 20px;
+    }
   }
 
   .movieinfo-text {
     font-family: Arial, Helvetica, sans-serif;
     padding: 40px;
-    color: #fff;
     overflow: hidden;
 
     h1 {
-      font-family: 'Abel', sans-serif;
+      font-family: "Abel", sans-serif;
       font-size: 48px;
       margin: 0;
 
@@ -54,7 +56,7 @@ export const StyledMovieInfo = styled.div`
     }
 
     p {
-      font-family: 'Abel', sans-serif;
+      font-family: "Abel", sans-serif;
       font-size: 18px;
       line-height: 26px;
     }

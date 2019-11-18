@@ -1,16 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledMovieThumb = styled.div`
   img {
     width: 100%;
-    /* min-height: 340px; */
+    min-height: 340px;
     transition: all 0.3s;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 15px;
     animation: animateMovieThumb 0.5s;
 
     :hover {
-      opacity: 0.8;
+      transform: scale(1.03);
+      box-shadow: 0 7px 20px ${props => props.theme.colors.accent};
     }
 
     .clickable {

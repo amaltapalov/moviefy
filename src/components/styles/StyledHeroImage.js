@@ -1,14 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledHeroImage = styled.div`
   background: ${props =>
     `linear-gradient(
       to bottom, rgba(0,0,0,0)
-      39%,rgba(0,0,0,0)
-      41%,rgba(0,0,0,0.65)
+      20%,rgba(145, 6, 29,0.65)
       100%
     ),
-    url('${props.image}'), #1c1c1c`};
+    url('${props.image}'), #381954`};
   background-size: 100%, cover !important;
   background-position: center, center !important;
   width: 100%;
@@ -29,35 +28,24 @@ export const StyledHeroImage = styled.div`
     bottom: 40px;
     margin-right: 20px;
     min-height: 100px;
-    background: rgba(0, 0, 0, 0);
-    color: #fff;
+    color: ${props => props.theme.colors.normal};
 
     h1 {
-      font-family: 'Abel', sans-serif;
       font-size: 48px;
-      color: #fff;
 
       @media screen and (max-width: 720px) {
         font-size: 38px;
-        color: #fff;
       }
     }
 
     p {
-      font-family: 'Abel', sans-serif;
       font-size: 22px;
       line-height: 26px;
-      color: #fff;
+      color: ${props => props.theme.colors.normal};
 
       @media screen and (max-width: 720px) {
         font-size: 16px;
-        line-height: 20px;
-        color: #fff;
       }
-    }
-
-    @media screen and (max-width: 720px) {
-      max-width: 100%;
     }
   }
 

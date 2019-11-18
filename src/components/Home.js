@@ -14,11 +14,12 @@ import Grid from "./elements/Grid";
 import MovieThumb from "./elements/MovieThumb";
 import LoadMoreBtn from "./elements/LoadMoreBtn";
 import Spinner from "./elements/Spinner";
+import Footer from "./elements/Footer";
 
 // Custom Hook
 import { useHomeFetch } from "./hooks/useHomeFetch";
 
-import NoImage from "./images/no_image.jpg";
+import NoImage from "../images/no_image.jpg";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -80,6 +81,7 @@ const Home = () => {
       {currentPage < totalPages && !loading && (
         <LoadMoreBtn text="Load More" callback={loadMoreMovies} />
       )}
+      <Footer />
     </>
   );
 };

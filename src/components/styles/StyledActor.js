@@ -1,9 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledActor = styled.div`
-  font-family: 'Abel', sans-serif;
-  color: #fff;
-  background: #1c1c1c;
+  background: ${props => props.theme.colors.lightBackground};
   border-radius: 20px;
   padding: 5px;
   text-align: center;
@@ -13,7 +11,7 @@ export const StyledActor = styled.div`
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
   }
 
   .actor-name {

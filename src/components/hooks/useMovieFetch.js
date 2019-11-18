@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { API_URL, API_KEY } from '../../config';
+import { useState, useEffect, useCallback } from "react";
+import { API_URL, API_KEY } from "../../config";
 
 export const useMovieFetch = movieId => {
   const [state, setState] = useState({});
@@ -17,20 +17,19 @@ export const useMovieFetch = movieId => {
       const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
       const creditsResult = await (await fetch(creditsEndpoint)).json();
       const directors = creditsResult.crew.filter(
-        member => member.job === 'Director'
+        member => member.job === "Director"
       );
 
       setState({
         ...result,
         actors: creditsResult.cast,
-        directors,
-      })
-
+        directors
+      });
     } catch (error) {
       setError(true);
     }
     setLoading(false);
-  }, [movieId])
+  }, [movieId]);
 
   useEffect(() => {
     if (localStorage[movieId]) {
@@ -43,7 +42,7 @@ export const useMovieFetch = movieId => {
 
   useEffect(() => {
     localStorage.setItem(movieId, JSON.stringify(state));
-  }, [movieId, state])
+  }, [movieId, state]);
 
   return [state, loading, error];
-}
+};

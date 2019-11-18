@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   POPULAR_BASE_URL,
   SEARCH_BASE_URL,
   POSTER_SIZE,
   BACKDROP_SIZE,
-  IMAGE_BASE_URL,
-} from '../config';
+  IMAGE_BASE_URL
+} from "../config";
 
 // import Components
-import HeroImage from './elements/HeroImage';
-import SearchBar from './elements/SearchBar';
-import Grid from './elements/Grid';
-import MovieThumb from './elements/MovieThumb';
-import LoadMoreBtn from './elements/LoadMoreBtn';
-import Spinner from './elements/Spinner';
+import HeroImage from "./elements/HeroImage";
+import SearchBar from "./elements/SearchBar";
+import Grid from "./elements/Grid";
+import MovieThumb from "./elements/MovieThumb";
+import LoadMoreBtn from "./elements/LoadMoreBtn";
+import Spinner from "./elements/Spinner";
 
 // Custom Hook
-import { useHomeFetch } from './hooks/useHomeFetch';
+import { useHomeFetch } from "./hooks/useHomeFetch";
 
-import NoImage from './images/no_image.jpg';
+import NoImage from "./images/no_image.jpg";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [
     {
       state: { movies, currentPage, totalPages, heroImage },
       loading,
-      error,
+      error
     },
-    fetchMovies,
+    fetchMovies
   ] = useHomeFetch(searchTerm);
 
   const searchMovies = search => {
@@ -36,18 +36,17 @@ const Home = () => {
 
     setSearchTerm(search);
     fetchMovies(endpoint);
-
-  }
+  };
 
   const loadMoreMovies = () => {
-    const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage + 1}`;
+    const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage +
+      1}`;
     const popularEndpoint = `${POPULAR_BASE_URL}&page=${currentPage + 1}`;
 
     const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
 
     fetchMovies(endpoint);
-
-  }
+  };
 
   if (error) return <div>Something went wrong ...</div>;
   if (!movies[0]) return <Spinner />;
@@ -62,7 +61,7 @@ const Home = () => {
         />
       )}
       <SearchBar callback={searchMovies} />
-      <Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
+      <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
         {movies.map(movie => (
           <MovieThumb
             key={movie.id}
